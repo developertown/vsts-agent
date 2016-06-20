@@ -16,6 +16,8 @@ if [ "$VSTS_AGENT_NAME" = "" ]; then
 fi
 
 cd $HOME
-bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent ${VSTS_AGENT_NAME} --pool ${VSTS_POOL:-Default} --auth PAT --token ${VSTS_PAT_TOKEN}
+T=$VSTS_PAT_TOKEN
+unset VSTS_PAT_TOKEN
+bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent ${VSTS_AGENT_NAME} --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
 
 exec bin/Agent.Listener run
