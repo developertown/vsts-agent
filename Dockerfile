@@ -6,9 +6,14 @@ RUN \
      apt update \
   && apt upgrade -y
 
-# install vsts pre-reqs
+# install vsts pre-reqs and basic build environment items
 RUN \
-     apt install -y libunwind8 libcurl3 curl \
+     apt-get install -y \
+       libunwind8 \
+       libcurl3 \
+       curl \
+       build-essential \
+       git \
   && curl -LOs http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-8ubuntu0.2_amd64.deb \
   && dpkg -i libicu52_52.1-8ubuntu0.2_amd64.deb \
   && rm -f libicu52_52.1-8ubuntu0.2_amd64.deb
@@ -32,6 +37,6 @@ RUN \
   && mkdir /usr/local/vsts-agent/_work
 
 
+# Copy in and run custom start wrapper
 COPY start.sh ./
-
 CMD ["./start.sh"]
