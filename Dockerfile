@@ -32,6 +32,7 @@ RUN \
     --home /usr/local/vsts-agent \
     --shell /bin/bash \
     --gecos "VSTS Agent" \
+    -G docker \
     vsts
 
 WORKDIR /usr/local/vsts-agent
