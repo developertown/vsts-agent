@@ -42,8 +42,6 @@ RUN \
    | tar xvzf - \
   && mkdir /usr/local/vsts-agent/_work
 
-VOLUME ["/var/run/docker.sock"]
-
 # Copy in and run custom start wrapper
 COPY start.sh ./
 CMD ["./start.sh"]
