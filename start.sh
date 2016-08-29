@@ -19,6 +19,6 @@ source ~/.bashrc
 
 T=$VSTS_PAT_TOKEN
 unset VSTS_PAT_TOKEN
-bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent "$AGENT_FLAVOR:${VSTS_AGENT_NAME}" --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
+bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent "$AGENT_FLAVOR-${VSTS_AGENT_NAME}" --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
 
 exec bin/Agent.Listener run
