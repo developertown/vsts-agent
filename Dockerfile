@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-ENV VSTS_VERSION "2.102.0"
+ENV VSTS_VERSION "2.105.2"
 
 RUN apt-get update
 
@@ -42,6 +42,8 @@ RUN \
      curl -Ls https://github.com/Microsoft/vsts-agent/releases/download/v${VSTS_VERSION}/vsts-agent-ubuntu.14.04-x64-${VSTS_VERSION}.tar.gz \
    | tar xvzf - \
   && mkdir /usr/local/vsts-agent/_work
+
+ENV AGENT_FLAVOR=Generic
 
 # Copy in and run custom start wrapper
 COPY start.sh ./

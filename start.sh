@@ -11,8 +11,7 @@ if [ "$VSTS_PAT_TOKEN" = "" ]; then
 fi
 
 if [ "$VSTS_AGENT_NAME" = "" ]; then
-  (>&2 echo "The VSTS_AGENT_NAME environment variable must be set to a unique name for the agent.  Existing agents with the same name will be replaced")
-  exit 1
+  VSTS_AGENT_NAME="$HOSTNAME-$(date '+%s')"
 fi
 
 cd $HOME
@@ -20,6 +19,6 @@ source ~/.bashrc
 
 T=$VSTS_PAT_TOKEN
 unset VSTS_PAT_TOKEN
-bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent ${VSTS_AGENT_NAME} --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
+bin/Agent.Listener configure --unattended --replace --nostart --url ${VSTS_URL} --agent "$AGENT_FLAVOR:${VSTS_AGENT_NAME}" --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
 
 exec bin/Agent.Listener run

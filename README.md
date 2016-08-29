@@ -15,12 +15,12 @@ environment.
 The following environment variables are required:
 
 - `VSTS_URL`: The complete URL to your VSTS environment.  For example, `https://mycompany.visualstudio.com`.
-- `VSTS_AGENT_NAME`: The name the agent should register itself as in VSTS.  **Note**: This image is configured to "`--replace`" any existing agent by the same name, so these should be unique.
 - `VSTS_PAT_TOKEN`: The PAT token the agent should use to authenticate.
 
-By default, the agent will join the `Default` pool.  You may optionally supply:
+The following environment variables are optional:
 
-- `VSTS_POOL`: The pool the agent should join.
+- `VSTS_POOL`: The pool the agent should join.  Will join the `Default` pool if unset.
+- `VSTS_AGENT_NAME`: The name the agent should register itself as in VSTS.  If unset, it will create an agent name comprised of the hostname and an epoch timestamp at time of launch.
 
 ## Example
 
