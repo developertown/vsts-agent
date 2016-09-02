@@ -32,7 +32,7 @@ RUN \
        vsts
 
 ENV \
-    VSTS_VERSION="2.105.2" \
+    VSTS_VERSION="2.105.3" \
     AGENT_FLAVOR=Generic
 
 WORKDIR /usr/local/vsts-agent
