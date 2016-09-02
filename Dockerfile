@@ -19,7 +19,7 @@ RUN \
        git \
        iputils-ping \
        docker-engine \
-       supervisor \
+       monit \
   #  clean up and install vsts agent \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -36,7 +36,6 @@ ENV \
     AGENT_FLAVOR=Generic
 
 WORKDIR /usr/local/vsts-agent
-USER vsts
 
 RUN \
      curl -Ls https://github.com/Microsoft/vsts-agent/releases/download/v${VSTS_VERSION}/vsts-agent-ubuntu.16.04-x64-${VSTS_VERSION}.tar.gz \
@@ -45,7 +44,10 @@ RUN \
 
 # Copy in and run custom start wrapper
 COPY start.sh ./
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY monit.conf /usr/local/vsts-agent/monit.conf
+RUN \
+     chown -R vsts:docker /usr/local/vsts-agent \
+  && chmod 600 /usr/local/vsts-agent/monit.conf
 
-USER root
-CMD ["/usr/bin/supervisord"]
+USER vsts
+CMD ["start.sh"]
