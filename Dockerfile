@@ -19,6 +19,7 @@ RUN \
        git \
        iputils-ping \
        docker-engine \
+       supervisor \
   #  clean up and install vsts agent \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -44,4 +45,7 @@ RUN \
 
 # Copy in and run custom start wrapper
 COPY start.sh ./
-CMD ["./start.sh"]
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+USER root
+CMD ["/usr/bin/supervisord"]
