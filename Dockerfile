@@ -50,4 +50,4 @@ RUN \
   && chmod 600 /usr/local/vsts-agent/monit.conf
 
 USER vsts
-CMD ["start.sh"]
+CMD ["/usr/local/vsts-agent/start.sh"]
