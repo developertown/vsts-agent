@@ -22,4 +22,5 @@ unset VSTS_PAT_TOKEN
 ./config.sh remove
 ./config.sh --unattended --replace --nostart --url ${VSTS_URL} --agent "$AGENT_FLAVOR-${VSTS_AGENT_NAME}" --pool ${VSTS_POOL:-Default} --auth PAT --token ${T}
 
-exec /usr/bin/monit -c /usr/local/vsts-agent/monit.conf
+#exec /usr/bin/monit -c /usr/local/vsts-agent/monit.conf
+exec bin/Agent.Listener run
