@@ -20,6 +20,19 @@ RUN \
        iputils-ping \
        docker-engine \
        monit \
+   # Useful packages for dev needs: \
+       openssl \
+       libreadline6 \
+       libreadline6-dev \
+       zlib1g zlib1g-dev \
+       libssl-dev libyaml-dev \
+       libsqlite3-dev \
+       sqlite3 \
+       libxml2-dev \
+       libxslt-dev \
+       autoconf \
+       libc6-dev \
+       automake \
   #  clean up and install vsts agent \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
