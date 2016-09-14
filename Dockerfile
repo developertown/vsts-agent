@@ -19,7 +19,6 @@ RUN \
        git \
        iputils-ping \
        docker-engine \
-       monit \
    # Useful packages for dev needs: \
        openssl \
        libreadline6 \
@@ -58,10 +57,7 @@ RUN \
 
 # Copy in and run custom start wrapper
 COPY start.sh ./
-COPY monit.conf /usr/local/vsts-agent/monit.conf
-RUN \
-     chown -R vsts:docker /usr/local/vsts-agent \
-  && chmod 600 /usr/local/vsts-agent/monit.conf
+RUN chown -R vsts:docker /usr/local/vsts-agent
 
 USER vsts
 CMD ["/usr/local/vsts-agent/start.sh"]
