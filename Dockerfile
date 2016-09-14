@@ -33,7 +33,8 @@ RUN \
 
 ENV \
     VSTS_VERSION="2.105.3" \
-    AGENT_FLAVOR=Generic
+    AGENT_FLAVOR=Generic \
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 WORKDIR /usr/local/vsts-agent
 

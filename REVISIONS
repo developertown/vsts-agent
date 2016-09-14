@@ -1,2 +1,2 @@
 export UPSTREAM_AGENT_REV=2.105.3
-export IMAGE_REV=2
+export IMAGE_REV=3
