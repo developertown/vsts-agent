@@ -11,7 +11,7 @@ if [ "$VSTS_PAT_TOKEN" = "" ]; then
 fi
 
 if [ "$VSTS_AGENT_NAME" = "" ]; then
-  VSTS_AGENT_NAME="$HOSTNAME-$(date '+%s')"
+  VSTS_AGENT_NAME="$HOSTNAME"
 fi
 
 cd $HOME
