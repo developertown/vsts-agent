@@ -60,4 +60,4 @@ COPY start.sh ./
 RUN chown -R vsts:docker /usr/local/vsts-agent
 
 USER vsts
-CMD ["/usr/local/vsts-agent/start.sh"]
+CMD /usr/local/vsts-agent/start.sh
