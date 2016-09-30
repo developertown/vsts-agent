@@ -32,6 +32,7 @@ RUN \
        autoconf \
        libc6-dev \
        automake \
+       default-jdk \
   #  clean up and install vsts agent \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
