@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-- [`2.102.0`, `latest`, (*Dockerfile*)](https://github.com/developertown/vsts-agent/blob/master/Dockerfile)
+- [`2.107.0-1`, `latest`, (*Dockerfile*)](https://github.com/developertown/vsts-agent/blob/master/Dockerfile)
 
 # Containerized VSTS Agent
 

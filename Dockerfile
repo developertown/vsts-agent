@@ -45,7 +45,7 @@ RUN \
        vsts
 
 ENV \
-    VSTS_VERSION="2.105.3" \
+    VSTS_VERSION="2.107.0" \
     AGENT_FLAVOR=Generic \
     PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
